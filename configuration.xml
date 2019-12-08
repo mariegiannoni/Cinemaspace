@@ -1,0 +1,6 @@
+﻿<Parameters>
+    <connection>
+        <addressDBMS>localhost</addressDBMS>
+        <portDBMS>27017</portDBMS>
+    </connection>
+</Parameters>
