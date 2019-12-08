@@ -10,7 +10,7 @@ import javax.xml.transform.dom.*;
 
 public class LocalConfigurationParameters {
     private static final String XMLConfigurationFilePath = "./configuration.xml";
-    private static final String XSDXMLConfigurationFilePath = "./configuration.xsd";
+    private static final String XSDConfigurationFilePath = "./configuration.xsd";
     
     public static String addressDBMS;
     public static String portDBMS;
@@ -23,7 +23,7 @@ public class LocalConfigurationParameters {
            SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
            
            configurationDocument = documentBuilder.parse(new File(XMLConfigurationFilePath));
-           Schema validationSchema = schemaFactory.newSchema(new File(XSDXMLConfigurationFilePath));
+           Schema validationSchema = schemaFactory.newSchema(new File(XSDConfigurationFilePath));
            
            validationSchema.newValidator().validate(new DOMSource(configurationDocument));
            
