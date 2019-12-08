@@ -5,12 +5,12 @@ public class Rating {
 	private ObjectId userId;
 	private ObjectId filmId;
 	private double rating;
-	private int timestamp;
+	private Long timestamp;
 	private int ageOfUser;
 	private String gender;
 	
 	
-	public Rating(ObjectId userId, ObjectId filmId, double rating, int timestamp, int ageOfUser, String gender) {
+	public Rating(ObjectId userId, ObjectId filmId, double rating, long timestamp, int ageOfUser, String gender) {
 		this.userId = userId;
 		this.filmId = filmId;
 		this.rating = rating;
@@ -40,11 +40,11 @@ public class Rating {
 		this.rating = rating;
 	}
 	
-	public int getTimestamp() {
+	public long getTimestamp() {
 		return timestamp;
 	}
 	
-	public void setTimestamp(int timestamp) {
+	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
 	}
 	
