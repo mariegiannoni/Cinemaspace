@@ -1,3 +1,5 @@
+package main.java;
+
 
 import java.util.*;
 import org.bson.types.*;
@@ -58,6 +60,11 @@ public class Film {
 		this.crew = crew;
 		this.averageRating = averageRating;
 		this.numberOfRatings = numberOfRatings;
+	}
+	
+	public Film(String posterPath, String title) {
+		this.posterPath = posterPath;
+		this.title = title;
 	}
 	
 	public ObjectId getId() {

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" fx:controller="interfaceFXML.FXMLControllerHome" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <HBox id="global_page" fx:id="globalPage" layoutX="0.0" layoutY="0.0" prefHeight="768.0" prefWidth="1024.0">
+      <children>
+        <VBox fx:id="menu" prefHeight="768.0" prefWidth="180.0" style="-fx-alignment:top-center;&#10;">
+          <children>
+            <Button fx:id="home" contentDisplay="LEFT" mnemonicParsing="false" onAction="#handleHomeButtonAction" prefHeight="40.0" prefWidth="140.0" style="" text="Home" textAlignment="CENTER">
+              <VBox.margin>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="25.0" />
+              </VBox.margin>
+            </Button>
+            <Button id="highest_rate" fx:id="highestRated" mnemonicParsing="false" onAction="#handleHighestRatedButtonAction" prefHeight="40.0" prefWidth="140.0" text="Highest Rated" textAlignment="CENTER">
+              <VBox.margin>
+                <Insets bottom="10.0" left="20.0" right="20.0" fx:id="x1" />
+              </VBox.margin>
+            </Button>
+            <Button id="most_popular" fx:id="mostPopular" mnemonicParsing="false" onAction="#handleMostPopularButtonAction" prefHeight="40.0" prefWidth="140.0" text="Most Popular" textAlignment="CENTER" VBox.margin="$x1" />
+            <Button fx:id="profile" mnemonicParsing="false" onAction="#handleProfileButtonAction" prefHeight="40.0" prefWidth="140.0" text="Profile" textAlignment="CENTER" VBox.margin="$x1" />
+            <Button fx:id="disconnection" mnemonicParsing="false" onAction="#handleDisconnectionButtonAction" prefHeight="40.0" prefWidth="140.0" text="Disconnection" textAlignment="CENTER" VBox.margin="$x1" />
+          </children>
+        </VBox>
+        <VBox prefHeight="768.0" prefWidth="7.0">
+          <children>
+            <Separator orientation="VERTICAL" prefHeight="768.0" />
+          </children>
+        </VBox>
+        <VBox id="home_page" fx:id="homePage" prefHeight="768.0" prefWidth="837.0">
+          <children>
+            <HBox id="search_part" fx:id="searchPart" minHeight="60.0" prefHeight="60.0" prefWidth="706.0" style="-fx-alignment:center;&#10;">
+              <children>
+                <TextField fx:id="searchBar" prefHeight="19.951171875" prefWidth="450.0" promptText="Search">
+                  <HBox.margin>
+                    <Insets fx:id="x2" />
+                  </HBox.margin>
+                </TextField>
+                <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearchButtonAction" text="Search">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Button>
+              </children>
+              <VBox.margin>
+                <Insets top="20.0" />
+              </VBox.margin>
+            </HBox>
+            <Text fx:id="films" strokeType="OUTSIDE" strokeWidth="0.0" style="" text="Films" underline="false">
+              <font>
+                <Font name="System Bold" size="17.0" />
+              </font>
+              <VBox.margin>
+                <Insets bottom="5.0" left="35.0" />
+              </VBox.margin>
+            </Text>
+            <Separator maxWidth="837.0" prefHeight="4.0" prefWidth="837.0">
+              <VBox.margin>
+                <Insets left="20.0" right="20.0" fx:id="x3" />
+              </VBox.margin>
+            </Separator>
+            <VBox id="VBox" fx:id="filmsCollection" alignment="CENTER" prefHeight="590.0" prefWidth="837.0" spacing="5.0">
+              <children>
+                <HBox id="row_1" fx:id="row1" prefHeight="275.0" prefWidth="837.0" style="-fx-alignment:center;">
+                  <children>
+                    <VBox id="film_1" fx:id="film1" prefHeight="275.0" prefWidth="200.0" style="-fx-alignment:center;">
+                      <children>
+                        <ImageView id="" fx:id="posterFilm1" fitHeight="250.0" fitWidth="170.0" onMouseClicked="#handleFilm1PosterAction" pickOnBounds="true" preserveRatio="true" />
+                        <Text id="title_film_1" fx:id="titleFilm1" onMouseClicked="#handleFilm1TitleAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Title1" />
+                      </children>
+                    </VBox>
+                    <VBox id="film_2" fx:id="film2" prefHeight="275.0" prefWidth="200.0" style="-fx-alignment:center;">
+                      <children>
+                        <ImageView id="poster_film_2" fx:id="posterFilm2" fitHeight="250.0" fitWidth="170.0" onMouseClicked="#handleFilm2PosterAction" pickOnBounds="true" preserveRatio="true" />
+                        <Text id="title_film_2" fx:id="titleFilm2" onMouseClicked="#handleFilm2TitleAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Title2" />
+                      </children>
+                    </VBox>
+                    <VBox id="film_3" fx:id="film3" prefHeight="275.0" prefWidth="200.0" style="-fx-alignment:center;">
+                      <children>
+                        <ImageView id="poster_film_3" fx:id="posterFilm3" fitHeight="250.0" fitWidth="170.0" onMouseClicked="#handleFilm3PosterAction" pickOnBounds="true" preserveRatio="true" />
+                        <Text id="titel_film_2" fx:id="titleFilm3" onMouseClicked="#handleFilm3TitleAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Title3" />
+                      </children>
+                    </VBox>
+                    <VBox id="film_4" fx:id="film4" prefHeight="275.0" prefWidth="200.0" style="-fx-alignment:center;">
+                      <children>
+                        <ImageView id="poster_film_4" fx:id="posterFilm4" fitHeight="250.0" fitWidth="170.0" onMouseClicked="#handleFilm4PosterAction" pickOnBounds="true" preserveRatio="true" />
+                        <Text id="title_film_4" fx:id="titleFilm4" onMouseClicked="#handleFilm4TitleAction" scaleX="1.0" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title4" />
+                      </children>
+                    </VBox>
+                  </children>
+                </HBox>
+                <HBox id="row_2" fx:id="row2" prefHeight="275.0" prefWidth="837.0" style="-fx-alignment:center;">
+                  <children>
+                    <VBox id="film_5" fx:id="film5" prefHeight="275.0" prefWidth="200.0" style="-fx-alignment:center;">
+                      <children>
+                        <ImageView id="poster_film_5" fx:id="posterFilm5" fitHeight="250.0" fitWidth="170.0" onMouseClicked="#handleFilm5PosterAction" pickOnBounds="true" preserveRatio="true" />
+                        <Text id="title_film_5" fx:id="titleFilm5" onMouseClicked="#handleFilm5TitleAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Title5" />
+                      </children>
+                    </VBox>
+                    <VBox id="film_6" fx:id="film6" prefHeight="275.0" prefWidth="200.0" style="-fx-alignment:center;">
+                      <children>
+                        <ImageView id="poster_film_6" fx:id="posterFilm6" fitHeight="250.0" fitWidth="170.0" onMouseClicked="#handleFilm6PosterAction" pickOnBounds="true" preserveRatio="true" />
+                        <Text id="title_film_6" fx:id="titleFilm6" onMouseClicked="#handleFilm6TitleAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Title6" />
+                      </children>
+                    </VBox>
+                    <VBox id="film_7" fx:id="film7" prefHeight="275.0" prefWidth="200.0" style="-fx-alignment:center;">
+                      <children>
+                        <ImageView id="poster_film_7" fx:id="posterFilm7" fitHeight="250.0" fitWidth="170.0" onMouseClicked="#handleFilm7PosterAction" pickOnBounds="true" preserveRatio="true" />
+                        <Text id="title_film_7" fx:id="titleFilm7" onMouseClicked="#handleFilm7TitleAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Title7" />
+                      </children>
+                    </VBox>
+                    <VBox id="film_8" fx:id="film8" prefHeight="275.0" prefWidth="200.0" style="-fx-alignment:center;">
+                      <children>
+                        <ImageView id="poster_film_8" fx:id="posterFilm8" fitHeight="250.0" fitWidth="170.0" onMouseClicked="#handleFilm8PosterAction" pickOnBounds="true" preserveRatio="true" />
+                        <Text id="title_film_8" fx:id="titleFilm8" onMouseClicked="#handleFilm8TitleAction" scaleX="1.0" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title8" />
+                      </children>
+                    </VBox>
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+            <Separator maxWidth="837.0" prefWidth="837.0" VBox.margin="$x3" />
+            <HBox minHeight="40.0" prefHeight="40.0" prefWidth="513.0" style="-fx-alignment:center;">
+              <children>
+                <Button id="previous_button" fx:id="previousButton" mnemonicParsing="false" onAction="#handlePreviousButtonAction" prefWidth="100.0" text="Previous">
+                  <HBox.margin>
+                    <Insets right="20.0" />
+                  </HBox.margin>
+                </Button>
+                <Button id="next_button" fx:id="nextButton" mnemonicParsing="false" onAction="#handleNextButtonAction" prefWidth="100.0" text="Next" HBox.margin="$x2" />
+              </children>
+              <VBox.margin>
+                <Insets bottom="10.0" top="5.0" />
+              </VBox.margin>
+            </HBox>
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+  </children>
+</AnchorPane>

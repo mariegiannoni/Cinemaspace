@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="interfaceFXML.FXMLControllerMovie">
+  <children>
+    <HBox id="global_page" fx:id="globalPage" layoutX="0.0" layoutY="0.0" prefHeight="768.0" prefWidth="1024.0">
+      <children>
+        <VBox fx:id="menu" prefHeight="768.0" prefWidth="180.0" style="-fx-alignment:top-center;&#10;">
+          <children>
+            <Button id="" fx:id="home" contentDisplay="LEFT" mnemonicParsing="false" onAction="#handleHomeButtonAction" prefHeight="40.0" prefWidth="140.0" style="" text="Home" textAlignment="CENTER">
+              <VBox.margin>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="25.0" />
+              </VBox.margin>
+            </Button>
+            <Button id="" fx:id="highestRate" mnemonicParsing="false" onAction="#handleHighestRatedButtonAction" prefHeight="40.0" prefWidth="140.0" text="Highest Rated" textAlignment="CENTER">
+              <VBox.margin>
+                <Insets bottom="10.0" left="20.0" right="20.0" fx:id="x1" />
+              </VBox.margin>
+            </Button>
+            <Button id="most_popular" fx:id="mostPopular" mnemonicParsing="false" onAction="#handleMostPopularButtonAction" prefHeight="40.0" prefWidth="140.0" text="Most Popular" textAlignment="CENTER" VBox.margin="$x1" />
+            <Button fx:id="profile" mnemonicParsing="false" onAction="#handleProfileButtonAction" prefHeight="40.0" prefWidth="140.0" text="Profile" textAlignment="CENTER" VBox.margin="$x1" />
+            <Button fx:id="disconnection" mnemonicParsing="false" onAction="#handleDisconnectionButtonAction" prefHeight="40.0" prefWidth="140.0" text="Disconnection" textAlignment="CENTER" VBox.margin="$x1" />
+          </children>
+        </VBox>
+        <VBox prefHeight="768.0" prefWidth="7.0">
+          <children>
+            <Separator orientation="VERTICAL" prefHeight="768.0" />
+          </children>
+        </VBox>
+        <VBox id="movie_page" fx:id="moviePage" prefHeight="768.0" prefWidth="837.0" style="&#10;">
+          <children>
+            <VBox id="information_part" fx:id="informationPart" prefHeight="447.0" prefWidth="347.0" style="-fx-alignment:center;">
+              <children>
+                <HBox fx:id="moviePoster" minHeight="239.0" prefHeight="239.0" prefWidth="713.0">
+                  <children>
+                    <ImageView fx:id="poster" blendMode="SRC_OVER" cache="false" fitHeight="200.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true">
+                      <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                      </HBox.margin>
+                    </ImageView>
+                    <VBox fx:id="moviePart1" prefHeight="239.0" prefWidth="415.0">
+                      <children>
+                        <HBox fx:id="titlePart" minHeight="40.0" prefHeight="40.0" prefWidth="537.0">
+                          <children>
+                            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Title">
+                              <font>
+                                <Font name="System Bold Italic" size="17.0" />
+                              </font>
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" top="10.0" />
+                              </HBox.margin>
+                            </Text>
+                          </children>
+                          <VBox.margin>
+                            <Insets top="10.0" />
+                          </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="runtimePart" minHeight="25.0" prefHeight="26.0" prefWidth="537.0">
+                          <children>
+                            <Text id="runtime_label" fx:id="runtimeLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Runtime:">
+                            	<font>
+                                	<Font name="System Bold" size="15.0" fx:id="x2" />
+                              	</font>
+                              	<HBox.margin>
+                                	<Insets left="10.0" top="5.0" />
+                              	</HBox.margin>
+                            </Text>
+                            <Text fx:id="runtime" strokeType="OUTSIDE" strokeWidth="0.0" text="runtime" HBox.margin="$x3">
+                            	<HBox.margin>
+                                	<Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                              	</HBox.margin>
+                            </Text>
+                          </children>
+                        </HBox>
+                        <HBox fx:id="genresPart" minHeight="24.0" prefHeight="24.0" prefWidth="537.0">
+                          <children>
+                            <Text id="genres_label" fx:id="genresLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Genres:" HBox.margin="$x3" />
+                            <Text id="genre1" fx:id="genreList" strokeType="OUTSIDE" strokeWidth="0.0" text="genre1" HBox.margin="$x3" />
+                          </children>
+                        </HBox>
+                        <HBox fx:id="realeaseDatePart" minHeight="25.0" prefHeight="26.0" prefWidth="537.0" VBox.margin="$x4">
+                          <children>
+                            <Text id="realease_date" fx:id="realeaseDate" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Release Date:" HBox.margin="$x3" />
+                            <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" text="date" HBox.margin="$x3" />
+                          </children>
+                        </HBox>
+                        <Text fx:id="overview" strokeType="OUTSIDE" strokeWidth="0.0" text="overview" VBox.margin="$x3" />
+                      </children>
+                    </VBox>
+                    <VBox fx:id="meanRatings" prefHeight="239.0" prefWidth="222.0">
+                      <children>
+                        <HBox fx:id="overallMeanRatingPart" prefHeight="53.0" prefWidth="260.0" style="-fx-alignment:center">
+                          <children>
+                            <ImageView fx:id="starOverall" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" x="0.0">
+                              <HBox.margin>
+                                <Insets right="10.0" fx:id="x7" />
+                              </HBox.margin>
+                            </ImageView>
+                            <Text fx:id="overallMeanRating" strokeType="OUTSIDE" strokeWidth="0.0" text="3.9/5">
+                              <HBox.margin>
+                                <Insets right="15.0" fx:id="x9" />
+                              </HBox.margin>
+                            </Text>
+                            <Text fx:id="textOverallMeanRating" strokeType="OUTSIDE" strokeWidth="0.0" text="overall mean rating" HBox.margin="$x9">
+                              <font>
+                                <Font name="System Italic" size="15.0" fx:id="x8" />
+                              </font>
+                            </Text>
+                          </children>
+                        </HBox>
+                        <HBox fx:id="recentMeanRatingPart" minWidth="245.9998779296875" prefHeight="100.0" prefWidth="245.9998779296875" style="-fx-alignment:center">
+                          <children>
+                            <ImageView fx:id="starRecent" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" x="0.0" HBox.margin="$x7" />
+                            <Text fx:id="recentMeanRating" strokeType="OUTSIDE" strokeWidth="0.0" text="4.3/5" HBox.margin="$x7" />
+                            <Text fx:id="textRecentMeanRating" font="$x8" strokeType="OUTSIDE" strokeWidth="0.0" text="recent mean rating &#10;(of the last two years)" HBox.margin="$x7" />
+                          </children>
+                        </HBox>
+                        <Button id="delete_film_button" fx:id="deleteFilmButton" disable="true" mnemonicParsing="false" onAction="#handleConfirmDeleteFilmsButtonAction" text="Delete Film" visible="false">
+                          <VBox.margin>
+                            <Insets left="130.0" />
+                          </VBox.margin>
+                        </Button>
+                      </children>
+                    </VBox>
+                  </children>
+                </HBox>
+                <VBox fx:id="moviePart2" prefHeight="185.0" prefWidth="837.0">
+                  <children>
+                    <HBox fx:id="directorPart" minHeight="25.0" prefHeight="26.0" prefWidth="817.0">
+                      <children>
+                        <Text id="director_label" fx:id="directorLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Director:" HBox.margin="$x3" />
+                        <Text fx:id="director" strokeType="OUTSIDE" strokeWidth="0.0" text="director" HBox.margin="$x3" />
+                      </children>
+                      <VBox.margin>
+                        <Insets left="10.0" right="10.0" fx:id="x5" />
+                      </VBox.margin>
+                    </HBox>
+                    <HBox fx:id="castPart" minHeight="25.0" prefHeight="26.0" prefWidth="817.0" VBox.margin="$x5">
+                      <children>
+                        <Text id="cast_label" fx:id="castLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Cast:" HBox.margin="$x3" />
+                        <Text id="cast1" fx:id="castList" strokeType="OUTSIDE" strokeWidth="0.0" text="cast1" HBox.margin="$x3" />
+                      </children>
+                    </HBox>
+                    <HBox fx:id="crewPart" minHeight="25.0" prefHeight="26.0" prefWidth="817.0" VBox.margin="$x5">
+                      <children>
+                        <Text id="crew_label" fx:id="crewLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Crew:" HBox.margin="$x3" />
+                        <Text id="crew1" fx:id="crewList" strokeType="OUTSIDE" strokeWidth="0.0" text="crew1" HBox.margin="$x3" />
+                      </children>
+                    </HBox>
+                    <HBox fx:id="countryPart" minHeight="25.0" prefHeight="26.0" prefWidth="817.0" VBox.margin="$x5">
+                      <children>
+                        <Text id="country_label" fx:id="countryLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
+                          <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Text>
+                        <Text fx:id="country" strokeType="OUTSIDE" strokeWidth="0.0" text="country">
+                          <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Text>
+                      </children>
+                    </HBox>
+                    <HBox fx:id="languagePart" minHeight="25.0" prefHeight="26.0" prefWidth="817.0" VBox.margin="$x5">
+                      <children>
+                        <Text id="language_label" fx:id="languageLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Language:">
+                          <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Text>
+                        <Text fx:id="language" strokeType="OUTSIDE" strokeWidth="0.0" text="language">
+                          <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Text>
+                      </children>
+                    </HBox>
+                    <HBox id="budget" fx:id="budgetPart" minHeight="25.0" prefHeight="26.0" prefWidth="817.0" VBox.margin="$x5">
+                      <children>
+                        <Text id="budget_label" fx:id="budgetLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget:">
+                          <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Text>
+                        <Text fx:id="budget" strokeType="OUTSIDE" strokeWidth="0.0" text="\$budget">
+                          <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Text>
+                      </children>
+                    </HBox>
+                    <HBox id="production" fx:id="productionCompagnyPart" minHeight="25.0" prefHeight="26.0" prefWidth="817.0" VBox.margin="$x5">
+                      <children>
+                        <Text id="production_company_label" fx:id="productionCompanyLabel" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Production Company:">
+                          <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Text>
+                        <Text id="pc1" fx:id="productionCompany" strokeType="OUTSIDE" strokeWidth="0.0" text="pc1">
+                          <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Text>
+                      </children>
+                    </HBox>
+                  </children>
+                  <VBox.margin>
+                    <Insets fx:id="x4" />
+                  </VBox.margin>
+                </VBox>
+              </children>
+            </VBox>
+            <Separator prefWidth="200.0">
+              <VBox.margin>
+                <Insets left="20.0" right="20.0" />
+              </VBox.margin>
+            </Separator>
+            <VBox id="VBox" fx:id="rateStatisticPart" alignment="TOP_CENTER" prefHeight="317.0" prefWidth="837.0" spacing="5.0" style="">
+              <children>
+                <HBox fx:id="ratePart" prefHeight="35.0" prefWidth="713.0" style="">
+                  <children>
+                    <HBox id="rating_to_add" fx:id="ratingToAdd" minHeight="40.0" prefHeight="40.0" prefWidth="837.0">
+                      <children>
+                        <Text id="rating2" fx:id="ratingTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating">
+                          <font>
+                            <Font name="System Bold" size="17.0" />
+                          </font>
+                          <HBox.margin>
+                            <Insets left="20.0" top="10.0" fx:id="x6" />
+                          </HBox.margin>
+                        </Text>
+                        <Text id="rate_action" fx:id="rateAction" font="$x2" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate" textOrigin="BASELINE">
+                          <HBox.margin>
+                            <Insets left="425.0" right="20.0" top="10.0" />
+                          </HBox.margin>
+                        </Text>
+                        <ComboBox fx:id="rate" editable="false" prefWidth="246.0"  onAction="#handleRateButtonAction" promptText="Rate">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="0/5" />
+                              <String fx:value="0.5/5" />
+                              <String fx:value="1/5" />
+                              <String fx:value="2/5" />
+                              <String fx:value="2.5/5" />
+                              <String fx:value="3/5" />
+                              <String fx:value="3.5/5" />
+                              <String fx:value="4/5" />
+                              <String fx:value="4.5/5" />
+                              <String fx:value="5/5" />
+                            </FXCollections>
+                          </items>
+                          <HBox.margin>
+                            <Insets top="8.0" />
+                          </HBox.margin>
+                        </ComboBox>
+                      </children>
+                      <HBox.margin>
+                        <Insets fx:id="x4" />
+                      </HBox.margin>
+                    </HBox>
+                  </children>
+                </HBox>
+                <HBox id="statistic_part" fx:id="statisticPart" prefHeight="225.0" prefWidth="837.0" style="-fx-alignment:center;">
+                  <children>
+                    <BarChart fx:id="barRatings" alternativeColumnFillVisible="false" barGap="0.0" categoryGap="5.0" horizontalGridLinesVisible="true" horizontalZeroLineVisible="true" legendSide="LEFT" legendVisible="false" minHeight="136.0" prefHeight="136.0" prefWidth="361.0">
+                      <xAxis>
+                        <CategoryAxis fx:id="ratingDistribution" label="Ratings" side="BOTTOM" />
+                      </xAxis>
+                      <yAxis>
+                        <NumberAxis fx:id="numberRatings" autoRanging="true" side="LEFT" tickLabelsVisible="false" upperBound="200.0" />
+                      </yAxis>
+                      <HBox.margin>
+                        <Insets bottom="10.0" right="20.0" />
+                      </HBox.margin>
+                    </BarChart>
+                    <GridPane id="array_demographic" fx:id="arrayDemographic" alignment="CENTER" gridLinesVisible="true" prefHeight="199.0" prefWidth="352.0" style="">
+                      <children>
+                        <Text id="all_age" fx:id="allAge" scaleX="1.0" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" style="" text="All" textAlignment="CENTER" textOrigin="CENTER" x="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="inf18" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt; 18" textOrigin="CENTER" x="0.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="from18to45" strokeType="OUTSIDE" strokeWidth="0.0" text="18 - 45" textOrigin="CENTER" x="0.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="above45" strokeType="OUTSIDE" strokeWidth="0.0" text="45+" textOrigin="CENTER" x="0.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text id="all_gender" fx:id="allGender" strokeType="OUTSIDE" strokeWidth="0.0" style="" text="All" textOrigin="CENTER" x="0.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="men" strokeType="OUTSIDE" strokeWidth="0.0" text="Men" textOrigin="CENTER" x="0.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="women" strokeType="OUTSIDE" strokeWidth="0.0" text="Women" textOrigin="CENTER" x="0.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="allAll" strokeType="OUTSIDE" strokeWidth="0.0" text="Result1" textOrigin="CENTER" x="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="all18" strokeType="OUTSIDE" strokeWidth="0.0" text="Result2" textOrigin="CENTER" x="0.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="all1845" strokeType="OUTSIDE" strokeWidth="0.0" text="Result3" textOrigin="CENTER" x="0.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="all45" strokeType="OUTSIDE" strokeWidth="0.0" text="Result4" textOrigin="CENTER" x="0.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="maleAll" strokeType="OUTSIDE" strokeWidth="0.0" text="Result5" textOrigin="CENTER" x="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="male18" strokeType="OUTSIDE" strokeWidth="0.0" text="Result6" textOrigin="CENTER" x="0.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="male1845" strokeType="OUTSIDE" strokeWidth="0.0" text="Result7" textOrigin="CENTER" x="0.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="male45" strokeType="OUTSIDE" strokeWidth="0.0" text="Result8" textOrigin="CENTER" x="0.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="femaleAll" strokeType="OUTSIDE" strokeWidth="0.0" text="Result9" textOrigin="CENTER" x="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="female18" strokeType="OUTSIDE" strokeWidth="0.0" text="Result10" textOrigin="CENTER" x="0.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="female1845" strokeType="OUTSIDE" strokeWidth="0.0" text="Result11" textOrigin="CENTER" x="0.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                        <Text fx:id="female45" strokeType="OUTSIDE" strokeWidth="0.0" text="Result12" textOrigin="CENTER" x="0.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets fx:id="x4" />
+                          </GridPane.margin>
+                        </Text>
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                      <HBox.margin>
+                        <Insets bottom="10.0" left="30.0" right="10.0" />
+                      </HBox.margin>
+                    </GridPane>
+                  </children>
+                  <VBox.margin>
+                    <Insets top="10.0" />
+                  </VBox.margin>
+                </HBox>
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+  </children>
+</AnchorPane>
