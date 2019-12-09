@@ -94,7 +94,7 @@
                             <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" text="date" HBox.margin="$x3" />
                           </children>
                         </HBox>
-                        <Text fx:id="overview" strokeType="OUTSIDE" strokeWidth="0.0" text="overview" VBox.margin="$x3" />
+                        <Text fx:id="overview" strokeType="OUTSIDE" strokeWidth="0.0" text="overview" VBox.margin="$x3"/>
                       </children>
                     </VBox>
                     <VBox fx:id="meanRatings" prefHeight="239.0" prefWidth="222.0">

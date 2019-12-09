@@ -258,11 +258,11 @@ public class FXMLControllerMovie {
 			else {
 				genres += " | " + list_genre.get(i);
 			}
-		}		
-		System.out.println(genres);
+		}
 		genreList.setText(genres);
 		
-		//overview.setText(film.getOverview());
+		overview.setWrappingWidth(350.0);
+		overview.setText(film.getOverview());
 		director.setText(film.getCrew().get(0).getName());
 		
 		String cast = "";
@@ -343,30 +343,36 @@ public class FXMLControllerMovie {
 		
 		Map<String, Integer> barData = CinemaSpaceArchive.generateDistributionOfRatings(film);
 		ObservableList<XYChart.Data<String, Integer>> observableStatisticsList = FXCollections.synchronizedObservableList(FXCollections.observableList(new ArrayList<XYChart.Data<String, Integer>>()));
-		ObservableList<XYChart.Data<String, Integer>> intermediate = FXCollections.synchronizedObservableList(FXCollections.observableList(new ArrayList<XYChart.Data<String, Integer>>()));
-		for(String key : barData.keySet()) {
-			intermediate.add(new XYChart.Data<>(key, barData.get(key)));
-		}
-		observableStatisticsList = intermediate;
+		observableStatisticsList.add(new XYChart.Data<>("0.0", barData.get("0.0")));
+		observableStatisticsList.add(new XYChart.Data<>("0.5", barData.get("0.5")));
+		observableStatisticsList.add(new XYChart.Data<>("1.0", barData.get("1.0")));
+		observableStatisticsList.add(new XYChart.Data<>("1.5", barData.get("1.5")));
+		observableStatisticsList.add(new XYChart.Data<>("2.0", barData.get("2.0")));
+		observableStatisticsList.add(new XYChart.Data<>("2.5", barData.get("2.5")));
+		observableStatisticsList.add(new XYChart.Data<>("3.0", barData.get("3.0")));
+		observableStatisticsList.add(new XYChart.Data<>("3.5", barData.get("3.5")));
+		observableStatisticsList.add(new XYChart.Data<>("4.0", barData.get("4.0")));
+		observableStatisticsList.add(new XYChart.Data<>("4.5", barData.get("4.5")));
+		observableStatisticsList.add(new XYChart.Data<>("5.0", barData.get("5.0")));
 		XYChart.Series<String, Integer> serie = new XYChart.Series<String, Integer>();
 		serie.getData().addAll(observableStatisticsList);
 		barRatings.getData().add(serie);
 		
 		Map<String, Double> barDemographicData = CinemaSpaceArchive.generateDistributionOfRatingsByDemographic(film);
-		allAll.setText(String.valueOf(film.getAverageRating()));
-		all18.setText(String.valueOf(barDemographicData.get("All_18")));
-		all1845.setText(String.valueOf(barDemographicData.get("All_18_45")));
-		all45.setText(String.valueOf(barDemographicData.get("All_45")));
+		allAll.setText(String.format("%.2f", film.getAverageRating()) + "/5");
+		all18.setText(String.format("%.2f", barDemographicData.get("All_18")) + "/5");
+		all1845.setText(String.format("%.2f", barDemographicData.get("All_18_45")) + "/5");
+		all45.setText(String.format("%.2f", barDemographicData.get("All_45")) + "/5");
 		
-		maleAll.setText(String.valueOf(barDemographicData.get("Male_All")));
-		male18.setText(String.valueOf(barDemographicData.get("Male_18")));
-		male1845.setText(String.valueOf(barDemographicData.get("Male_18_45")));
-		male45.setText(String.valueOf(barDemographicData.get("Male_45")));
+		maleAll.setText(String.format("%.2f", barDemographicData.get("Male_All")) + "/5");
+		male18.setText(String.format("%.2f", barDemographicData.get("Male_18")) + "/5");
+		male1845.setText(String.format("%.2f", barDemographicData.get("Male_18_45")) + "/5");
+		male45.setText(String.format("%.2f", barDemographicData.get("Male_45")) + "/5");
 		
-		femaleAll.setText(String.valueOf(barDemographicData.get("Female_All")));
-		female18.setText(String.valueOf(barDemographicData.get("Female_18")));
-		female1845.setText(String.valueOf(barDemographicData.get("Female_18_45")));
-		female45.setText(String.valueOf(barDemographicData.get("Female_45")));
+		femaleAll.setText(String.format("%.2f", barDemographicData.get("Female_All")) + "/5");
+		female18.setText(String.format("%.2f", barDemographicData.get("Female_18")) + "/5");
+		female1845.setText(String.format("%.2f", barDemographicData.get("Female_18_45")) + "/5");
+		female45.setText(String.format("%.2f", barDemographicData.get("Female_45")) + "/5");
 	}
 
 }
