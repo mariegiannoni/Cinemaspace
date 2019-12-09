@@ -343,7 +343,7 @@ public class CinemaSpaceArchive {
 		List<Film> filmSearch = new ArrayList<>();
 		
 		List<Bson> aggregationQuery = Arrays.asList(Aggregates.sort(Filters.eq("number_of_visits", -1)),
-													Aggregates.limit(10));
+													Aggregates.limit(50));
 		
 		try(MongoCursor<Document> cursor = filmCollection.aggregate(aggregationQuery).iterator()) {
 			
