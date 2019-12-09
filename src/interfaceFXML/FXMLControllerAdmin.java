@@ -93,8 +93,9 @@ public class FXMLControllerAdmin {
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JSON files (*.json)", "*.json");
 		chooser.getExtensionFilters().add(extFilter);
 		File file = chooser.showOpenDialog(stage);
-		fileNameField.setText(file.getAbsolutePath());
-		
+		if(file.getAbsolutePath() != null) {
+			fileNameField.setText(file.getAbsolutePath());
+		}
 	}
 
 	@FXML protected void handleConfirmAddFilmsButtonAction (ActionEvent event) {
